@@ -3,6 +3,7 @@ syntax = "proto3";
 package prayer.muslim.v1;
 
 import "google/type/date.proto";
+import "google/type/datetime.proto";
 import "google/type/latlng.proto";
 
 option go_package = "github.com/islamicprayer/protos/prayer/muslim/v1";
@@ -18,7 +19,7 @@ message PrayerTime {
     PRAYER_ISHA = 6;
   };
   Prayer prayer = 1;
-  google.type.Date date = 2;
+  google.type.DateTime date = 2;
 }
 
 message GetPrayerTimeRequest {
@@ -27,7 +28,7 @@ message GetPrayerTimeRequest {
 }
 
 message GetPrayerTimeResponse {
-  PrayerTime prayer_time = 1;
+  repeated PrayerTime prayer_time = 1;
 }
 
 service PrayerTimeService {
