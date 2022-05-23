@@ -10,7 +10,7 @@ message LocationResponse {
   string city = 1;
   string country = 2;
   string image_url = 3;
-  google.type.LatLng location = 1;
+  google.type.LatLng location = 4;
 }
 
 message GetCityByCoordsRequest {
