@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package prayer.muslim.v1;
+
+import "google/type/latlng.proto";
+
+option go_package = "github.com/islamicprayer/protos/prayer/muslim/v1";
+
+message LocationResponse {
+  string city = 1;
+  string country = 2;
+  string image_url = 3;
+  google.type.LatLng location = 1;
+}
+
+message GetCityByCoordsRequest {
+  google.type.LatLng location = 1;
+}
+
+message GetCoordsByCityRequest {
+  string city = 1;
+}
+
+message ListCitiesRequest {
+  string search_city = 1;
+}
+
+message ListCitiesResponse {
+  repeated LocationResponse locations = 1;
+}
+
+service LocationService {
+  rpc GetCityByCoords(GetCityByCoordsRequest) returns (LocationResponse) {}
+  rpc GetCoordsByCity(GetCoordsByCityRequest) returns (LocationResponse) {}
+  rpc ListCities(ListCitiesRequest) returns (ListCitiesResponse) {}
+}

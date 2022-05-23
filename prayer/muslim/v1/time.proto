@@ -17,7 +17,8 @@ message PrayerTime {
     PRAYER_ASR = 4;
     PRAYER_MAGHRIB = 5;
     PRAYER_ISHA = 6;
-  };
+  }
+
   Prayer prayer = 1;
   google.type.DateTime date = 2;
 }
